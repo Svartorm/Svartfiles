@@ -2,8 +2,7 @@
 
 Last install: 5/4/26
 
-## Commands
-
+## Connect to the internet
 ```shell
 localectl list-keymaps
 
@@ -22,7 +21,7 @@ ping google.com
 
 ```
 
-Partition disk
+## Partition disk and BTRFS subvolumes
 ```shell
 fdisk -l 
 
@@ -57,11 +56,17 @@ lsblk -f
 
 mkdir -p /mnt/etc
 genfstab -U /mnt >> /mnt/etc/fstab
+```
 
+## Setup the system
+```shell
 pacstrap /mnt base linux linux-firmware sudo vim
 
-arch-root /mnt 
+arch-root /mnt
+```
 
+Set the time and local of choice :
+```shell
 timedatectl set-timezone Europe/Paris
 hwclock --systohc
 
@@ -70,25 +75,39 @@ locale-gen
 echo "LANG=fr_FR.UTF-8" >> /etc/locale.conf
 echo "KEYMAP=fr-latin1" >> /etc/vconsole.conf
 echo "SvartPad" >> /etc/hostname 
+```
 
+## Setup user :
+```shell
 passwd
 useradd -m svartorm
 passwd svartorm
 usermod -aG wheel,audio,video,optical,storage,input svartorm
 visudo
+```
 
-
+## Enable ZRAM module 
+```shell
 pacman -S zram-generator
 echo -e "[zram0]\nzram-size = ram / 2\ncompression-algorithm = zstd\nswap-priority = 100\nmount-point = /dev/zram0" >> /etc/systemd/zram-generator.conf
+```
 
+## Setup GRUB
+```shell
 pacman -S grub efibootmgr
 mkdir -p /boot/efi 
 mount /dev/nvme0n1p1 /boot/efi
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg 
+```
 
+## Install base packages
+```shell
 pacman -S base-devel git networkmanager sddm hyprland kitty
+```
 
+## Exit boot key 
+```shell
 exit
 lsblk
 umount -l /mnt 
@@ -100,3 +119,4 @@ sudo systemctl enable sddm
 
 reboot
 ```
+
