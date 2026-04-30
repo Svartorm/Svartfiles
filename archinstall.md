@@ -119,4 +119,32 @@ sudo systemctl enable sddm
 
 reboot
 ```
+## Install AUR helper
 
+```shell
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
+```
+
+## Install Snapshots
+
+```shell
+sudo pacman -S timeshift grub-btrfs inotify-tools
+
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo systemctl edit --full grub-btrfsd
+```
+Modify this:
+`ExecStart=/usr/bin/grub-btrfsd --syslog /.snapshots`
+into this:
+`ExecStart=/usr/bin/grub-btrfsd --syslog --timeshift-auto`
+```shell
+sudo systemctl enable grub-btrfsd
+sudo systemctl start grub-btrfsd
+```
+
+Autosnaps (create snapshot on system updates):
+```shell
+paru -S timeshift-autosnaps
+```
