@@ -89,7 +89,7 @@ visudo
 ## Enable ZRAM module 
 ```shell
 pacman -S zram-generator
-echo -e "[zram0]\nzram-size = ram / 2\ncompression-algorithm = zstd\nswap-priority = 100\nmount-point = /dev/zram0" >> /etc/systemd/zram-generator.conf
+echo -e "[zram0]\nzram-size = ram / 2\ncompression-algorithm = zstd\nswap-priority = 100\n" >> /etc/systemd/zram-generator.conf
 ```
 
 ## Setup GRUB
@@ -113,7 +113,8 @@ lsblk
 umount -l /mnt 
 reboot
 
-sudo systemctl start /dev/zram0
+sudo systemctl start systemd-zram-setup@zram0
+zramctl
 sudo systemctl enable --now NetworkManager 
 sudo systemctl enable sddm
 
