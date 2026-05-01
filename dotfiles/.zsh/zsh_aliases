@@ -1,0 +1,61 @@
+##### Git Aliases #####
+alias gs='git status'
+alias lg='lazygit'
+
+##### LS Aliases #####
+
+alias l='eza --colour=always --group-directories-first'
+alias ls='eza --colour=always --group-directories-first'
+alias la='ls -a'
+alias lf='ls -fa'
+alias ld='ls -D'
+alias ll='ls -lah --git --time-style=relative --total-size --colour-scale=size'
+alias lll='ls -lahbgHimMSuUZo --git --time-style=long-iso --total-size --colour-scale=size'
+
+##### Tree Aliases #####
+
+alias tre='ls -T'
+alias tree='ls -T'
+alias treee='ls -T'
+alias treed='ld -T'
+alias treel='ll -T'
+alias treeld='ll -TD'
+alias treea='la -T'
+
+##### Miss-spelling #####
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+
+##### Bat Aliases #####
+alias bat='bat --paging=never'
+alias bata='bat -A --paging=never'
+
+##### Perm Related #####
+alias mx='chmod +x'
+alias 000='chmod 000'
+alias 640='chmod 640'
+alias 644='chmod 644'
+alias 700='chmod 700'
+alias 755='chmod 755'
+
+##### Compilation #####
+alias g='gcc -Wextra -Wall -Werror -Wvla -std=c99 -pedantic'
+alias gasan='gcc -Wextra -Wall -Werror -Wvla -g -fsanitize=address -std=c99 -pedantic'
+alias mk='make'
+alias mkb='make DEBUG=1'
+
+##### General Purpose #####
+alias cls='clear'
+alias n='nvim'
+alias dockerstart='sudo systemctl start docker.service'
+
+##### Fun shit #####
+alias fox='tinyfox.sh fox'
+alias yeen='tinyfox.sh yeen'
+
+##### Pacman #####
+alias listallpackages='pacman -Qe'

@@ -1,0 +1,12 @@
+# Completions
+eval `dircolors`
+export LS_COLORS
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+
+# fzf-preview
+# zstyle ':fzf-tab:complete:*' fzf-preview 'ls --color $realpath'
+# zstyle ':fzf-tab:complete:nvim:*' fzf-preview 'bat --color=always --style=numbers --line-range=:500 $realpath'
+# zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
+# export LESSOPEN='|~/.zsh/lib/.lessfilter %s'
