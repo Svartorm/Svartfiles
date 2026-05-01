@@ -1,0 +1,98 @@
+version = 3
+final_space = true
+
+[palette]
+  black = '#262B44'
+  blue = '#4B95E9'
+  green = '#59C9A5'
+  grey = '#6C6C6C'
+  orange = '#F07623'
+  red = '#D81E5B'
+  white = '#E0DEF4'
+  yellow = '#F3AE35'
+
+[secondary_prompt]
+  template = '⦒⦒'
+  foreground = 'p:blue'
+  background = 'transparent'
+
+[transient_prompt]
+  template = "{{ if gt .Code 0}}⤷ {{ .Code }}\n{{end}}<p:blue>⦒</>"
+  background = 'transparent'
+  foreground_templates = ['{{if eq .Code 0}}p:blue{{end}}', '{{if gt .Code 0}}p:red{{end}}']
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '{{ .Path }}'
+    foreground = 'p:red'
+    background = 'transparent'
+    type = 'path'
+
+    [blocks.segments.properties]
+      mapped_locations_enabled = true
+      style = 'full'
+
+      [blocks.segments.properties.mapped_locations]
+        '~/' = ' ~'
+
+  [[blocks.segments]]
+    style = 'plain'
+    foreground = 'p:grey'
+    background = 'transparent'
+    type = 'git'
+    templates = [' - ', '{{ url .UpstreamIcon .UpstreamURL }}{{.HEAD}}', '{{ if or (.Working.Changed) (.Staging.Changed) }}*{{end}}', ' {{ .Staging.String }}', ' {{if gt .Behind 0}}￬i{{end}}{{if gt .Ahead 0}}￪{{end}}', '{{if .LatestTag }}  {{ .LatestTag }}{{end}}']
+
+    [blocks.segments.properties]
+      branch_icon = ' '
+      commit_icon = '@'
+      fetch_status = true
+      fetch_upstream_icon = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'right'
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '<p:grey><i>took</i></> {{.FormattedMs}} '
+    foreground = 'cyan'
+    background = 'transparent'
+    type = 'executiontime'
+
+    [blocks.segments.properties]
+      style = 'round'
+      threshold = 9000
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '<p:grey>-</> {{if .Error}}{{.String}}{{end}}'
+    foreground = 'p:red'
+    background = 'transparent'
+    type = 'status'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '⦒'
+    foreground = 'p:blue'
+    background = 'transparent'
+    type = 'text'
+
+[[blocks]]
+  type = 'rprompt'
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '{{if .Error}}{{ reason .Code }}{{end}}'
+    foreground = 'p:red'
+    background = 'transparent'
+    type = 'status'
