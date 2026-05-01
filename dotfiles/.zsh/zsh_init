@@ -19,8 +19,8 @@ ZSH_WEB_SEARCH_ENGINES=(
 )
 
 #   BGNotify:
-bgnotify_threshold=4
-source ~/.zsh/lib/notify.zsh
+#bgnotify_threshold=4
+#source ~/.zsh/lib/notify.zsh
 
 # Load plugins
 zinit light zsh-users/zsh-syntax-highlighting
@@ -32,7 +32,6 @@ zinit light Freed-Wu/fzf-tab-source
 
 # Load snippets (plugins from URLS)
 zinit snippet OMZP::sudo
-zinit snippet OMZP::git
 zinit snippet OMZP::web-search
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::bgnotify
@@ -78,11 +77,12 @@ eval "$(zoxide init --cmd cd zsh)" # Improve the cd command
 eval "$(fzf --zsh)" # Command history search
 
 # Pyenv init
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+#export PYENV_ROOT="$HOME/.pyenv"
+#[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init - zsh)"
 
 # Terminal colours
 source ~/.zsh/zsh_colours
 
+# System fetch
 catnap
