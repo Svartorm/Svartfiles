@@ -1,0 +1,17 @@
+/* Modules Lists */
+
+{
+  "includes": [
+    "~/.config/waybar/modules/workspaces.jsonc",
+    "~/.config/waybar/modules/groups.jsonc",
+    "~/.config/waybar/modules/backlight.jsonc",
+    "~/.config/waybar/modules/battery.jsonc",
+    "~/.config/waybar/modules/bluetooth.jsonc",
+    "~/.config/waybar/modules/clock.jsonc",
+    "~/.config/waybar/modules/cpu.jsonc",
+    "~/.config/waybar/modules/disk.jsonc",
+    "~/.config/waybar/modules/window.jsonc",
+    "~/.config/waybar/modules/idle_inhibitor.jsonc",
+    ""
+  ]
+}

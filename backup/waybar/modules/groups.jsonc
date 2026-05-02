@@ -1,0 +1,28 @@
+// Groups of modules
+// -- used to display more than 1 information --
+
+"group/motherboard": {
+    "orientation": "horizontal",
+    "modules": [
+      "cpu",
+      "memory",
+      "temperature",
+      "disk"
+      ]	
+},
+  
+"group/laptop": {
+    "orientation": "horizontal",
+    "modules": [
+      "backlight",
+      "battery"
+      ]	
+},
+  
+"group/audio": {
+    "orientation": "horizontal",
+    "modules": [
+      "pulseaudio",
+      "pulseaudio#microphone"
+      ]	
+},

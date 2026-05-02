@@ -1,0 +1,50 @@
+# This is the configuration file for catnap.
+# Here you can configure the stat colors,
+# stat names, stat icons and more!
+#
+# https://github.com/iinsertNameHere/catnap
+
+##############################################
+##          FetchInfo stats Config          ##
+##############################################
+[stats]
+username = {icon = " ", name = "user" , color = "{RD}"}
+hostname  = {icon = " ", name = "hostname", color = "{YW}"}
+sep_shell_1   = "separator!!!"
+distro    = {icon = " ", name = "distro", color = "{GN}"}
+kernel    = {icon = " ", name = "kernel", color = "{CN}"}
+desktop   = {icon = " ", name = "desktop", color = "{BE}"}
+terminal  = {icon = " ", name = "term", color = "{MA}"}
+shell     = {icon = " ", name = "shell", color = "{RD}"}
+packages  = {icon = " ", name = "packages", color = "{YW}"}  # WARNING: Resource Intensive
+sep_shell_2   = "separator2!!!"
+cpu       = {icon = " ", name = "cpu", color = "{GN}"}
+uptime    = {icon = " ", name = "uptime", color = "{CN}"}
+# gpu       = {icon = "󱔐 ", name = "gpu", color = "(MA)"}      # WARNING: Resource Intensive
+disk_0    = {icon = " ", name = "disk1", color = "{BE}"}
+memory    = {icon = " ", name = "memory", color = "{MA}"}
+battery   = {icon = " ", name = "battery", color = "{RD}"}
+# weather   = {icon = " ", name = "weather", color = "(BE)"} # Requires curl and an emoji font. | WARNING: Resource Intensive
+sep_color = "SEPARATOR"
+colors    = {icon = " ", name = "colors", color = "{YW}", symbol = ""}
+
+##############################################
+##               Misc Config                ##
+##############################################
+[misc]
+borderstyle = "line"
+layout = "Inline" # [Inline, ArtOnTop, StatsOnTop]
+stats_margin_top = 0
+
+[misc.figletLogos] # Requires Figlet.
+enable =false 
+color  = "(YW)"
+font   = "slant"
+margin = [0, 0, 0,]
+
+[misc.imageMode] # Requires Viu.
+enable = true
+path   = "/home/svartorm/.config/catnap/images/SvartBlanket.png" # Please only use absolute paths.
+scale  = 22
+margin = [4, 4, 3,]
+
