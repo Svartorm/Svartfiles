@@ -6,11 +6,16 @@ sudo pacman -S zsh
 
 chsh svartorm
 
-echo $SHELL
+reboot
 ```
 
 Install shell utils:
 ```shell
 sudo pacman -S zoxide eza fzf
 paru -S oh-my-posh catnap
+```
+
+Other useful apps:
+```shell
+sudo pacman -S lazygit
 ```

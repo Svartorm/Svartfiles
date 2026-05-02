@@ -18,6 +18,12 @@ ZSH_WEB_SEARCH_ENGINES=(
   reddit "https://www.reddit.com/search/?q="
 )
 
+#   You-Should-Use
+YSU_IGNORED_ALIASES=(
+  "l"
+  "tre" "treee"
+)
+
 #   BGNotify:
 #bgnotify_threshold=4
 #source ~/.zsh/lib/notify.zsh
