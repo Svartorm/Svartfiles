@@ -12,7 +12,7 @@ final_space = true
   yellow = '#F3AE35'
 
 [secondary_prompt]
-  template = '⦒⦒'
+  template = ''
   foreground = 'p:blue'
   background = 'transparent'
 
@@ -48,7 +48,7 @@ final_space = true
     templates = [' - ', '{{ url .UpstreamIcon .UpstreamURL }}{{.HEAD}}', '{{ if or (.Working.Changed) (.Staging.Changed) }}*{{end}}', ' {{ .Staging.String }}', ' {{if gt .Behind 0}}￬i{{end}}{{if gt .Ahead 0}}￪{{end}}', '{{if .LatestTag }}  {{ .LatestTag }}{{end}}']
 
     [blocks.segments.properties]
-      branch_icon = ' '
+      branch_icon = ''
       commit_icon = '@'
       fetch_status = true
       fetch_upstream_icon = true
@@ -82,7 +82,7 @@ final_space = true
 
   [[blocks.segments]]
     style = 'plain'
-    template = '⦒'
+    template = ''
     foreground = 'p:blue'
     background = 'transparent'
     type = 'text'
