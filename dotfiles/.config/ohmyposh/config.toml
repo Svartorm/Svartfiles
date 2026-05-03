@@ -1,4 +1,4 @@
-version = 3
+version = 4
 final_space = true
 
 [palette]
@@ -6,18 +6,19 @@ final_space = true
   blue = '#4B95E9'
   green = '#59C9A5'
   grey = '#6C6C6C'
+  muted = '#6e6a86'
   orange = '#F07623'
   red = '#D81E5B'
   white = '#E0DEF4'
   yellow = '#F3AE35'
 
 [secondary_prompt]
-  template = ''
+  template = ' '
   foreground = 'p:blue'
   background = 'transparent'
 
 [transient_prompt]
-  template = "{{ if gt .Code 0}}⤷ {{ .Code }}\n{{end}}<p:blue>⦒</>"
+  template = "{{ if gt .Code 0}}󰘍 {{ .Code }}\n{{end}}<p:blue> </>"
   background = 'transparent'
   foreground_templates = ['{{if eq .Code 0}}p:blue{{end}}', '{{if gt .Code 0}}p:red{{end}}']
 
@@ -33,22 +34,30 @@ final_space = true
     background = 'transparent'
     type = 'path'
 
-    [blocks.segments.properties]
+    [blocks.segments.options]
       mapped_locations_enabled = true
       style = 'full'
 
-      [blocks.segments.properties.mapped_locations]
+      [blocks.segments.options.mapped_locations]
         '~/' = ' ~'
 
   [[blocks.segments]]
     style = 'plain'
-    foreground = 'p:grey'
+    foreground = 'p:muted'
     background = 'transparent'
     type = 'git'
-    templates = [' - ', '{{ url .UpstreamIcon .UpstreamURL }}{{.HEAD}}', '{{ if or (.Working.Changed) (.Staging.Changed) }}*{{end}}', ' {{ .Staging.String }}', ' {{if gt .Behind 0}}￬i{{end}}{{if gt .Ahead 0}}￪{{end}}', '{{if .LatestTag }}  {{ .LatestTag }}{{end}}']
+    templates = [
+      ' - ', 
+      '{{ url .UpstreamIcon .UpstreamURL }} {{.HEAD}}', 
+      '{{ if or (.Working.Changed) (.Staging.Changed) }}*{{end}}', 
+      '{{ .Staging.String }}', 
+      '{{if gt .Behind 0}} {{.Behind}}{{end}}',
+      '{{if gt .Ahead 0}} {{.Ahead}}{{end}}', 
+      '{{if .LatestTag }}  {{ .LatestTag }}{{end}}'
+    ]
 
-    [blocks.segments.properties]
-      branch_icon = ''
+    [blocks.segments.options]
+      branch_icon = ' '
       commit_icon = '@'
       fetch_status = true
       fetch_upstream_icon = true
@@ -58,19 +67,33 @@ final_space = true
   alignment = 'right'
 
   [[blocks.segments]]
+    type = 'battery'
     style = 'plain'
-    template = '<p:grey><i>took</i></> {{.FormattedMs}} '
+    foreground_templates = [
+      '{{ if eq "Discharging" .State.String }}cyan{{end}}',
+      '{{ if eq "Charging" .State.String }}green{{end}}'
+    ]
+    background = 'transparent'
+    template = '{{ if lt .Percentage 90}}{{ .Icon }} {{end}}'
+
+    [blocks.segments.options]
+    discharging_icon = '󱊡'
+    charging_icon = '󱊤'
+
+  [[blocks.segments]]
+    style = 'plain'
+    template = '<p:muted><i>took</i></> {{.FormattedMs}} '
     foreground = 'cyan'
     background = 'transparent'
     type = 'executiontime'
 
-    [blocks.segments.properties]
+    [blocks.segments.options]
       style = 'round'
-      threshold = 9000
+      threshold = 3000
 
   [[blocks.segments]]
     style = 'plain'
-    template = '<p:grey>-</> {{if .Error}}{{.String}}{{end}}'
+    template = '<p:muted>-</> {{if .Error}}{{.String}}{{end}}'
     foreground = 'p:red'
     background = 'transparent'
     type = 'status'

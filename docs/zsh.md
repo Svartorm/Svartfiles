@@ -17,5 +17,5 @@ paru -S oh-my-posh catnap
 
 Other useful apps:
 ```shell
-sudo pacman -S lazygit
+sudo pacman -S lazygit less
 ```
