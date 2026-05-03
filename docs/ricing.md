@@ -10,11 +10,11 @@ docker
 nvim
 
 hyprland conf
-catnap conf
 sddm conf
 grub conf
 gtk/qt theme
 
+nautilus
 tofi
 hypridle
 hyprpaper

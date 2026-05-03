@@ -20,10 +20,10 @@ shell     = {icon = " ", name = "shell", color = "(MA)"}
 # weather   = {icon = " ", name = "weather", color = "(BE)"} # Requires curl and an emoji font. | WARNING: Resource Intensive
 # gpu       = {icon = "󱔐 ", name = "gpu", color = "(MA)"}      # WARNING: Resource Intensive
 # cpu       = {icon = " ", name = "cpu", color = "(RD)"}
-# battery   = {icon = " ", name = "battery", color = "(GN)"}
-# memory    = {icon = " ", name = "memory", color = "(YW)"}
+battery   = {icon = " ", name = "battery", color = "(GN)"}
+memory    = {icon = " ", name = "memory", color = "(YW)"}
 # The following stats do not work on MacOS and the BSDs.
-# disk_0    = {icon = " ", name = "disk", color = "(GN)"}
+disk_0    = {icon = " ", name = "disk", color = "(GN)"}
 sep_color = "SEPARATOR"
 colors    = {icon = " ", name = "colors", color = "!DT!", symbol = ""}
 
