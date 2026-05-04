@@ -2,10 +2,6 @@
 
 todo:
 
-pyenv
-docker
-nvim
-
 hyprland conf
 sddm conf
 grub conf

@@ -9,7 +9,7 @@ quickshell
 tofi
 
 kitty
-nautilus
+nautilus (lxappearance for gtk theme)
 
 wifi (nmcli)
 bluetooth (bluez)
