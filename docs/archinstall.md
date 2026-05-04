@@ -74,7 +74,7 @@ hwclock --systohc
 
 vim /etc/locale
 locale-gen
-echo "LANG=en_UK.UTF-8" >> /etc/locale.conf
+echo "LANG=en_GB.UTF-8" >> /etc/locale.conf
 echo "KEYMAP=fr-latin1" >> /etc/vconsole.conf
 echo "SvartPad" >> /etc/hostname 
 ```
