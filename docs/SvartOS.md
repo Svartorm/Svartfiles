@@ -21,3 +21,10 @@ sddm:
 sudo pacman -S sddm
 sudo systemctl enable sddm
 ```
+
+Hyprland:
+```shell
+sudo pacman -S hyprland
+```
+
+

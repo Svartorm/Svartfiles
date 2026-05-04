@@ -1,10 +1,7 @@
 # Ricing
 
 todo:
-firewall
-bluetooth
 
-ohmyposh
 pyenv
 docker
 nvim
@@ -14,8 +11,6 @@ sddm conf
 grub conf
 gtk/qt theme
 
-nautilus
-tofi
 hypridle
 hyprpaper
 hyprlock
