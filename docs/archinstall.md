@@ -2,6 +2,8 @@
 
 Last install: 5/4/26
 
+This setup assumes you are installing arch from a bootable device (USB).
+
 ## Connect to the internet
 ```shell
 localectl list-keymaps
@@ -72,7 +74,7 @@ hwclock --systohc
 
 vim /etc/locale
 locale-gen
-echo "LANG=fr_FR.UTF-8" >> /etc/locale.conf
+echo "LANG=en_UK.UTF-8" >> /etc/locale.conf
 echo "KEYMAP=fr-latin1" >> /etc/vconsole.conf
 echo "SvartPad" >> /etc/hostname 
 ```
@@ -101,28 +103,65 @@ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg 
 ```
 
-## Install base packages
-```shell
-pacman -S base-devel git networkmanager sddm hyprland kitty
-```
-
 ## Exit boot key 
 ```shell
 exit
 lsblk
 umount -l /mnt 
 reboot
-
+```
+After the restart, start the zram module:
+```shell
 sudo systemctl start systemd-zram-setup@zram0
 zramctl
-sudo systemctl enable --now NetworkManager 
-sudo systemctl enable sddm
-
-reboot
 ```
+
+## Wifi setup
+```shell
+sudo pacman -S networkmanager
+
+sudo systemctl enable --now NetworkManager
+```
+Now connect to the wifi network:
+```shell
+nmcli dev wifi list
+nmcli dev wifi connect SvartBox --ask
+```
+
+## Bluetooth setup
+```shell
+sudo pacman -S bluez bluez-utils
+
+sudo systemctl enable --now bluetooth
+```
+Now to connect your devices:
+```shell
+bluetoothctl
+power on
+scan on
+pair XX:XX:XX:XX:XX:XX # Your device MAC address
+```
+
+## Audio setup
+```shell
+sudo pacman -S pipewire pipewire-audio pipewire-alsa pipewire-pulse wireplumber
+
+systemctl --user enable --now pipewire pipewire-pulse wireplumber
+```
+
+## Firewall setup
+```shell
+sudo pacman -S ufw
+
+sudo ufw enable
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+```
+
 ## Install AUR helper
 
 ```shell
+sudo pacman -S base-devel git
 git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
