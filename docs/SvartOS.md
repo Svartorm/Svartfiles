@@ -3,17 +3,22 @@
 SvartOS is a collection of utils and apps to use effectively your computer.
 
 Apps:
-sddm
-hyprland
+sddm ok
+hyprland ok 
 quickshell
-tofi
+tofi ok 
+hyprpaper
+hyprlock
+hypridle
 
-kitty
-nautilus (lxappearance for gtk theme)
+kitty ok
+nautilus (lxappearance for gtk theme) ok
 
-wifi (nmcli)
+wifi (nmcli) ok
 bluetooth (bluez)
 usb daemon
+screenshot
+power mode
 
 
 sddm:
@@ -27,4 +32,8 @@ Hyprland:
 sudo pacman -S hyprland
 ```
 
+Quickshell:
+```shell
+sudo pacman -S quickshell ttf-hack-nerd brightnessctl libnotify
+```
 
