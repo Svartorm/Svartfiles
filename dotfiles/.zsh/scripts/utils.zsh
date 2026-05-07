@@ -84,3 +84,8 @@ function discordupdate ()
   sudo pacman -Sy discord 
   sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
 }
+
+function pasteimage ()
+{
+  wl-paste >> "$1.png"
+}
