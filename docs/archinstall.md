@@ -188,3 +188,4 @@ Autosnaps (create snapshot on system updates):
 ```shell
 paru -S timeshift-autosnaps
 ```
+Edit `/etc/timeshift-autosnap.conf` file so that `updateGrub=false`.

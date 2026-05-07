@@ -19,6 +19,7 @@ bluetooth (bluez)
 usb daemon
 screenshot
 power mode
+btop
 
 
 sddm:
@@ -32,8 +33,27 @@ Hyprland:
 sudo pacman -S hyprland
 ```
 
+HyprEcosystem
+```shell
+sudo pacman -S hyprlock hypridle hyprpaper
+```
+
 Quickshell:
 ```shell
 sudo pacman -S quickshell ttf-hack-nerd brightnessctl libnotify
 ```
 
+
+Power profile:
+```shell
+sudo pacman -S power-profiles-daemon
+sudo systemctl enable --now power-profiles-daemon
+
+powerprofilesctl get
+powerprofilesctl set <profile>
+```
+
+Screenshot:
+```shell
+sudo pacman -S grim slurp swappy viu
+```

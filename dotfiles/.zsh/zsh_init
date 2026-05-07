@@ -40,7 +40,6 @@ zinit light Freed-Wu/fzf-tab-source
 zinit snippet OMZP::sudo
 zinit snippet OMZP::web-search
 zinit snippet OMZP::command-not-found
-zinit snippet OMZP::bgnotify
 zinit snippet OMZP::colored-man-pages
 
 # Enable zsh-completions
